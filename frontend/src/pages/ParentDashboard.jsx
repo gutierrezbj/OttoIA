@@ -98,7 +98,7 @@ const ParentDashboard = () => {
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold text-slate-900" style={{ fontFamily: 'Outfit, sans-serif' }}>
-                TutorIA
+                OttoIA
               </span>
             </div>
             

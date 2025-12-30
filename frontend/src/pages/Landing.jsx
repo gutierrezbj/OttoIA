@@ -54,7 +54,7 @@ const Landing = () => {
               <BookOpen className="w-6 h-6 text-black" />
             </div>
             <span className="text-2xl font-bold text-[#2B2D42]" style={{ fontFamily: 'Fredoka, sans-serif' }}>
-              TutorIA
+              OttoIA
             </span>
           </div>
           <Button
@@ -257,7 +257,7 @@ const Landing = () => {
       <footer className="py-8 bg-[#1a1b26]">
         <div className="container mx-auto px-6 text-center">
           <p className="text-[#8D99AE] text-sm">
-            © 2025 TutorIA • Diseñado para alumnos de primaria en España
+            © 2025 OttoIA • Diseñado para alumnos de primaria en España
           </p>
         </div>
       </footer>
