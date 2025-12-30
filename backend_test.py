@@ -75,42 +75,9 @@ class TutorIAAPITester:
         self.session_token = "test_session_1767119972159"
         self.test_child_id = "child_5f51fb1c51ca"
         
-        # MongoDB commands to create test user and session
-        mongo_commands = f"""
-        use test_database;
-        db.users.insertOne({{
-            user_id: "{self.user_id}",
-            email: "test.user.{timestamp}@example.com",
-            name: "Test User",
-            picture: "https://via.placeholder.com/150",
-            created_at: "{datetime.now(timezone.utc).isoformat()}"
-        }});
-        db.user_sessions.insertOne({{
-            user_id: "{self.user_id}",
-            session_token: "{self.session_token}",
-            expires_at: "{(datetime.now(timezone.utc) + timedelta(days=7)).isoformat()}",
-            created_at: "{datetime.now(timezone.utc).isoformat()}"
-        }});
-        """
-        
-        import subprocess
-        try:
-            result = subprocess.run(
-                ["mongosh", "--eval", mongo_commands],
-                capture_output=True,
-                text=True,
-                timeout=10
-            )
-            if result.returncode == 0:
-                self.log(f"✅ Test user created - User ID: {self.user_id}")
-                self.log(f"✅ Session token: {self.session_token}")
-                return True
-            else:
-                self.log(f"❌ MongoDB error: {result.stderr}")
-                return False
-        except Exception as e:
-            self.log(f"❌ Error creating test user: {str(e)}")
-            return False
+        self.log(f"✅ Using existing session token: {self.session_token}")
+        self.log(f"✅ Using existing child ID: {self.test_child_id}")
+        return True
 
     def test_basic_endpoints(self):
         """Test basic API endpoints"""
