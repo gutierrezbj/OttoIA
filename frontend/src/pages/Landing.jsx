@@ -118,7 +118,7 @@ const Landing = () => {
             className="text-3xl md:text-4xl font-bold text-center text-[#2B2D42] mb-4"
             style={{ fontFamily: 'Fredoka, sans-serif' }}
           >
-            ¿Qué hace TutorIA diferente?
+            ¿Qué hace OttoIA diferente?
           </h2>
           <p className="text-center text-[#8D99AE] mb-12 max-w-xl mx-auto">
             No es más tarea. Es práctica corta y bien enfocada.
