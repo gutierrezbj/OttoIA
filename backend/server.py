@@ -11,7 +11,7 @@ from typing import List, Optional, Dict, Any
 import uuid
 from datetime import datetime, timezone, timedelta
 import httpx
-from openai import AsyncOpenAI
+import anthropic
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -21,8 +21,8 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# OpenAI client
-openai_client = AsyncOpenAI(api_key=os.environ.get('OPENAI_API_KEY', ''))
+# Anthropic Claude client
+claude_client = anthropic.AsyncAnthropic(api_key=os.environ.get('ANTHROPIC_API_KEY', ''))
 
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
