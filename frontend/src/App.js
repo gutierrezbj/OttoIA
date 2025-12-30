@@ -128,6 +128,11 @@ function AppRouter() {
           <Practice />
         </ProtectedRoute>
       } />
+      <Route path="/child/:childId/map" element={
+        <ProtectedRoute requiredType="child">
+          <AdventureMap />
+        </ProtectedRoute>
+      } />
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />
