@@ -219,6 +219,33 @@ const ChildDashboard = () => {
           </button>
         </div>
 
+        {/* Adventure Map Button */}
+        <button
+          data-testid="adventure-map-btn"
+          onClick={() => navigate(`/child/${childId}/map`)}
+          className="w-full card-clay mb-8 hover:scale-[1.02] transition-transform bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-4 border-black"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 bg-white/20 border-4 border-white/50 rounded-2xl flex items-center justify-center">
+                <span className="text-3xl">🗺️</span>
+              </div>
+              <div className="text-left">
+                <h2 
+                  className="text-xl font-bold text-white mb-1"
+                  style={{ fontFamily: 'Fredoka, sans-serif' }}
+                >
+                  Mapa de Aventuras
+                </h2>
+                <p className="text-white/80">
+                  ¡Explora los mundos y gana estrellas!
+                </p>
+              </div>
+            </div>
+            <div className="text-4xl">⭐</div>
+          </div>
+        </button>
+
         {/* Subject Progress */}
         <div className="card-clay mb-8">
           <h2 
