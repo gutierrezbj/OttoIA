@@ -1,34 +1,265 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Varela+Round&family=Outfit:wght@400;500;600&family=Inter:wght@400;500&display=swap');
+
+/* Child Theme Variables */
+.child-theme {
+  --bg-primary: #FFFDF5;
+  --color-primary: #4CC9F0;
+  --color-secondary: #FFD60A;
+  --color-accent: #F72585;
+  --text-main: #2B2D42;
+  --text-muted: #8D99AE;
+  --card-bg: #FFFFFF;
+  --border-color: #2B2D42;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Parent Theme Variables */
+.parent-theme {
+  --bg-primary: #F8FAFC;
+  --color-primary: #0F172A;
+  --color-secondary: #334155;
+  --color-accent: #3B82F6;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --card-bg: #FFFFFF;
+  --border-color: #E2E8F0;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Base Styles */
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-link {
-    color: #61dafb;
+/* Child Theme Specific */
+.child-theme {
+  font-family: 'Varela Round', sans-serif;
+  background-color: #FFFDF5;
+  min-height: 100vh;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.child-theme h1, 
+.child-theme h2, 
+.child-theme h3 {
+  font-family: 'Fredoka', sans-serif;
+}
+
+/* Parent Theme Specific */
+.parent-theme {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8FAFC;
+  min-height: 100vh;
+}
+
+.parent-theme h1, 
+.parent-theme h2, 
+.parent-theme h3 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Claymorphism Button - Child */
+.btn-clay {
+  background-color: #4CC9F0;
+  color: #000;
+  border: 4px solid #000;
+  border-radius: 9999px;
+  padding: 16px 32px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-clay:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.btn-clay-secondary {
+  background-color: #FFD60A;
+  color: #000;
+  border: 4px solid #000;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-clay-secondary:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.btn-clay-accent {
+  background-color: #F72585;
+  color: #fff;
+  border: 4px solid #000;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-clay-accent:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Clay Card - Child */
+.card-clay {
+  background-color: #fff;
+  border: 4px solid #000;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.1);
+}
+
+/* Status Colors */
+.status-green { background-color: #10B981; }
+.status-yellow { background-color: #F59E0B; }
+.status-red { background-color: #EF4444; }
+
+/* Mood Icons */
+.mood-happy { color: #10B981; }
+.mood-neutral { color: #F59E0B; }
+.mood-tired { color: #8D99AE; }
+.mood-frustrated { color: #EF4444; }
+
+/* Animations */
+@keyframes bounce-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(76, 201, 240, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(76, 201, 240, 0.8); }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.5s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Floating shapes for child background */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.shape-1 {
+  width: 200px;
+  height: 200px;
+  background: #4CC9F0;
+  top: 10%;
+  left: 5%;
+}
+
+.shape-2 {
+  width: 150px;
+  height: 150px;
+  background: #FFD60A;
+  top: 60%;
+  right: 10%;
+}
+
+.shape-3 {
+  width: 100px;
+  height: 100px;
+  background: #F72585;
+  bottom: 20%;
+  left: 15%;
+}
+
+/* Progress bar */
+.progress-clay {
+  background-color: #E5E7EB;
+  border-radius: 9999px;
+  height: 16px;
+  border: 3px solid #000;
+  overflow: hidden;
+}
+
+.progress-clay-fill {
+  background-color: #4CC9F0;
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+/* Chat bubble styles */
+.chat-bubble-user {
+  background-color: #4CC9F0;
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 20px 20px 4px 20px;
+  padding: 12px 16px;
+  max-width: 80%;
+  margin-left: auto;
+}
+
+.chat-bubble-assistant {
+  background-color: #fff;
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 20px 20px 20px 4px;
+  padding: 12px 16px;
+  max-width: 80%;
+}
+
+/* Subject icons */
+.subject-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  border: 3px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.subject-matematicas { background-color: #4CC9F0; }
+.subject-lengua { background-color: #FFD60A; }
+.subject-ciencias { background-color: #10B981; }
+.subject-ingles { background-color: #F72585; }
+
+/* Landing page gradient */
+.landing-gradient {
+  background: linear-gradient(135deg, #FFFDF5 0%, #FEF3C7 100%);
+}
+
+/* Streak badge */
+.streak-badge {
+  background: linear-gradient(135deg, #FFD60A, #F59E0B);
+  border: 3px solid #000;
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
 }
