@@ -568,14 +568,14 @@ Contexto actual: {chat_request.context or 'conversación general'}"""
     messages.append({"role": "user", "content": chat_request.message})
     
     try:
-        response = await openai_client.chat.completions.create(
-            model="gpt-4o",
-            messages=messages,
-            temperature=0.7,
-            max_tokens=300
+        response = await claude_client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=300,
+            system=system_message,
+            messages=messages
         )
         
-        assistant_message = response.choices[0].message.content
+        assistant_message = response.content[0].text
         
         # Save messages to database
         user_msg = {
