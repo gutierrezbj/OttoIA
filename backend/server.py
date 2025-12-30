@@ -545,7 +545,7 @@ async def chat_with_tutor(
     ).sort("created_at", -1).limit(10).to_list(10)
     recent_messages.reverse()
     
-    # Build messages for OpenAI
+    # Build messages for Claude
     system_message = f"""Eres un tutor amable y paciente para {child['name']}, un niño de {child['age']} años en {child['grade']}º de primaria en España.
 
 REGLAS IMPORTANTES:
@@ -560,7 +560,8 @@ REGLAS IMPORTANTES:
 
 Contexto actual: {chat_request.context or 'conversación general'}"""
 
-    messages = [{"role": "system", "content": system_message}]
+    # Claude expects messages without system role in the array
+    messages = []
     
     for msg in recent_messages:
         messages.append({"role": msg["role"], "content": msg["content"]})
