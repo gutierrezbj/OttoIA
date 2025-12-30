@@ -714,6 +714,7 @@ async def create_checkin(
     }
     
     await db.checkins.insert_one(checkin_doc)
+    checkin_doc.pop("_id", None)
     return checkin_doc
 
 @api_router.get("/checkin/{child_id}/today")
