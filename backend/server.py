@@ -600,7 +600,79 @@ Contexto actual: {chat_request.context or 'conversación general'}"""
         
     except Exception as e:
         logger.error(f"Chat error: {e}")
-        return {"message": "¡Hola! Estoy aquí para ayudarte. ¿Qué te gustaría aprender hoy?"}
+        # Fallback responses based on message content
+        fallback_response = get_fallback_chat_response(chat_request.message, child['name'])
+        
+        # Save messages even with fallback
+        user_msg = {
+            "message_id": f"msg_{uuid.uuid4().hex[:12]}",
+            "child_id": child_id,
+            "role": "user",
+            "content": chat_request.message,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        }
+        assistant_msg = {
+            "message_id": f"msg_{uuid.uuid4().hex[:12]}",
+            "child_id": child_id,
+            "role": "assistant",
+            "content": fallback_response,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        }
+        await db.chat_messages.insert_many([user_msg, assistant_msg])
+        
+        return {"message": fallback_response}
+
+def get_fallback_chat_response(message: str, child_name: str) -> str:
+    """Get a helpful fallback response based on keywords in the message"""
+    message_lower = message.lower()
+    
+    if any(word in message_lower for word in ["suma", "sumar", "más", "+"]):
+        return f"¡Buena pregunta, {child_name}! Para sumar, piensa en juntar cosas. Por ejemplo, si tienes 3 manzanas y te dan 2 más, ¿cuántas tendrás en total? Cuenta con los dedos si te ayuda. 🍎"
+    
+    elif any(word in message_lower for word in ["resta", "restar", "menos", "-", "quitar"]):
+        return f"¡Vamos a restar, {child_name}! Restar es como quitar. Si tienes 5 caramelos y te comes 2, ¿cuántos te quedan? Prueba a contar hacia atrás. 🍬"
+    
+    elif any(word in message_lower for word in ["multiplica", "multiplicar", "por", "×", "veces"]):
+        return f"¡Las multiplicaciones son sumas repetidas, {child_name}! Por ejemplo, 3 × 4 es lo mismo que sumar 3 cuatro veces: 3+3+3+3. ¿Quieres que practiquemos juntos? ✨"
+    
+    elif any(word in message_lower for word in ["divide", "dividir", "entre", "÷", "repartir"]):
+        return f"Dividir es como repartir en partes iguales, {child_name}. Si tienes 12 galletas para 4 amigos, ¿cuántas le tocan a cada uno? Piensa en repartir una a una. 🍪"
+    
+    elif any(word in message_lower for word in ["fracción", "fracciones", "mitad", "cuarto"]):
+        return f"¡Las fracciones son partes de un todo, {child_name}! Imagina una pizza cortada en trozos iguales. Si comes 1 de 4 trozos, has comido 1/4 de la pizza. 🍕"
+    
+    elif any(word in message_lower for word in ["verbo", "verbos", "acción"]):
+        return f"¡Los verbos son palabras de acción, {child_name}! Correr, saltar, comer, dormir... ¿Qué estás haciendo ahora mismo? ¡Eso es un verbo! 🏃"
+    
+    elif any(word in message_lower for word in ["sustantivo", "nombre", "cosa"]):
+        return f"Los sustantivos son los nombres de todo lo que existe, {child_name}. Pueden ser personas (mamá), animales (perro), cosas (mesa) o lugares (parque). ¿Puedes decirme 3 sustantivos? 📝"
+    
+    elif any(word in message_lower for word in ["adjetivo", "describe", "cualidad"]):
+        return f"¡Los adjetivos describen cómo son las cosas, {child_name}! Grande, pequeño, rojo, suave... Por ejemplo: el gato NEGRO. 'Negro' es el adjetivo. 🎨"
+    
+    elif any(word in message_lower for word in ["ortografía", "escribir", "letra"]):
+        return f"¡La ortografía es importante, {child_name}! Un truco: lee mucho, así tu cerebro aprende cómo se ven las palabras correctas. ¿Hay alguna palabra que te cueste? 📖"
+    
+    elif any(word in message_lower for word in ["planeta", "sol", "luna", "tierra"]):
+        return f"¡El espacio es fascinante, {child_name}! Hay 8 planetas en nuestro sistema solar. La Tierra es el tercero desde el Sol y es el único donde hay vida como la conocemos. 🌍"
+    
+    elif any(word in message_lower for word in ["animal", "animales", "perro", "gato"]):
+        return f"¡Los animales son increíbles, {child_name}! Hay mamíferos, aves, peces, reptiles y anfibios. ¿Cuál es tu animal favorito? Puedo contarte curiosidades sobre él. 🦁"
+    
+    elif any(word in message_lower for word in ["planta", "plantas", "árbol", "flor"]):
+        return f"Las plantas son seres vivos muy especiales, {child_name}. Necesitan agua, luz del sol y tierra para crecer. ¡Y nos dan el oxígeno que respiramos! 🌱"
+    
+    elif any(word in message_lower for word in ["inglés", "english", "traducir"]):
+        return f"¡Let's learn English, {child_name}! El inglés es muy útil. Empecemos con palabras simples: Hello = Hola, Goodbye = Adiós, Thank you = Gracias. 🌍"
+    
+    elif any(word in message_lower for word in ["ayuda", "no entiendo", "difícil", "no sé"]):
+        return f"¡No te preocupes, {child_name}! Todos aprendemos paso a paso. Dime qué parte no entiendes y lo explicamos juntos. No hay preguntas tontas, ¿vale? 💪"
+    
+    elif any(word in message_lower for word in ["hola", "buenos días", "buenas"]):
+        return f"¡Hola, {child_name}! 👋 ¿Qué tal estás? Estoy aquí para ayudarte con lo que necesites. ¿Qué te gustaría aprender hoy?"
+    
+    else:
+        return f"¡Buena pregunta, {child_name}! 🌟 Déjame pensar cómo explicártelo mejor. ¿Puedes darme más detalles sobre lo que necesitas? Así podré ayudarte mejor."
 
 @api_router.get("/chat/{child_id}/history")
 async def get_chat_history(
