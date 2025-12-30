@@ -1,4 +1,4 @@
-# TutorIA - PRD (Product Requirements Document)
+# OttoAI - PRD (Product Requirements Document)
 
 ## Original Problem Statement
 App tipo "tutor personal" para alumnos de primaria (6 a 12 años) que:

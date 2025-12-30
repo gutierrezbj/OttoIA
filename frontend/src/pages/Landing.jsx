@@ -54,7 +54,7 @@ const Landing = () => {
               <BookOpen className="w-6 h-6 text-black" />
             </div>
             <span className="text-2xl font-bold text-[#2B2D42]" style={{ fontFamily: 'Fredoka, sans-serif' }}>
-              OttoIA
+              OttoAI
             </span>
           </div>
           <Button
@@ -118,7 +118,7 @@ const Landing = () => {
             className="text-3xl md:text-4xl font-bold text-center text-[#2B2D42] mb-4"
             style={{ fontFamily: 'Fredoka, sans-serif' }}
           >
-            ¿Qué hace OttoIA diferente?
+            ¿Qué hace OttoAI diferente?
           </h2>
           <p className="text-center text-[#8D99AE] mb-12 max-w-xl mx-auto">
             No es más tarea. Es práctica corta y bien enfocada.
@@ -257,7 +257,7 @@ const Landing = () => {
       <footer className="py-8 bg-[#1a1b26]">
         <div className="container mx-auto px-6 text-center">
           <p className="text-[#8D99AE] text-sm">
-            © 2025 OttoIA • Diseñado para alumnos de primaria en España
+            © 2025 OttoAI • Diseñado para alumnos de primaria en España
           </p>
         </div>
       </footer>

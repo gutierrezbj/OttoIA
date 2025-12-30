@@ -916,7 +916,7 @@ async def get_weekly_report(
 
 @api_router.get("/")
 async def root():
-    return {"message": "OttoIA API - Tu tutor personal de primaria"}
+    return {"message": "OttoAI API - Tu tutor personal de primaria"}
 
 # Include router
 app.include_router(api_router)

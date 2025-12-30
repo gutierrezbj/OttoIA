@@ -98,7 +98,7 @@ const ParentDashboard = () => {
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold text-slate-900" style={{ fontFamily: 'Outfit, sans-serif' }}>
-                OttoIA
+                OttoAI
               </span>
             </div>
             
@@ -131,7 +131,7 @@ const ParentDashboard = () => {
               <User className="w-10 h-10 text-blue-600" />
             </div>
             <h2 className="text-2xl font-semibold text-slate-900 mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>
-              ¡Bienvenido a OttoIA!
+              ¡Bienvenido a OttoAI!
             </h2>
             <p className="text-slate-600 mb-6">
               Añade el perfil de tu hijo para empezar con las sesiones de práctica personalizadas.
