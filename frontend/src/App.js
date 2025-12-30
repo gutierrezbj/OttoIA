@@ -14,6 +14,7 @@ import ChildSetup from "./pages/ChildSetup";
 import TutorChat from "./pages/TutorChat";
 import Practice from "./pages/Practice";
 import WeeklyReport from "./pages/WeeklyReport";
+import AdventureMap from "./pages/AdventureMap";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 export const API = `${BACKEND_URL}/api`;
