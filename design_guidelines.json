@@ -1,0 +1,172 @@
+{
+  "identity": {
+    "name": "TutorIA",
+    "tone": {
+      "child": "Playful, Encouraging, Magical, Safe",
+      "parent": "Professional, Clear, Reassuring, Efficient"
+    },
+    "design_philosophy": "Dual-World Interface: A tactile, clay-morphism world for children vs. a clean, Swiss-style control room for parents."
+  },
+  "typography": {
+    "child": {
+      "headings": {
+        "family": "Fredoka, sans-serif",
+        "weights": ["600", "700"],
+        "usage": "All main titles in Child Dashboard. Use tight tracking."
+      },
+      "body": {
+        "family": "Varela Round, sans-serif",
+        "weights": ["400"],
+        "usage": "Instructions, chat bubbles, feedback."
+      }
+    },
+    "parent": {
+      "headings": {
+        "family": "Outfit, sans-serif",
+        "weights": ["500", "600"],
+        "usage": "Dashboard headers, report titles."
+      },
+      "body": {
+        "family": "Inter, sans-serif",
+        "weights": ["400", "500"],
+        "usage": "Data tables, settings, long text."
+      }
+    }
+  },
+  "colors": {
+    "child_theme": {
+      "background": "#FFFDF5",
+      "primary": "#4CC9F0",
+      "secondary": "#FFD60A",
+      "accent": "#F72585",
+      "text_main": "#2B2D42",
+      "text_muted": "#8D99AE",
+      "card_bg": "#FFFFFF",
+      "border": "#2B2D42"
+    },
+    "parent_theme": {
+      "background": "#F8FAFC",
+      "primary": "#0F172A",
+      "secondary": "#334155",
+      "accent": "#3B82F6",
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "error": "#EF4444",
+      "text_main": "#0F172A",
+      "text_muted": "#64748B",
+      "card_bg": "#FFFFFF",
+      "border": "#E2E8F0"
+    }
+  },
+  "visual_enhancers": {
+    "child_ui": {
+      "style": "Claymorphism",
+      "border_radius": "rounded-3xl",
+      "border_width": "border-4",
+      "shadows": "shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+      "hover_effects": "hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all",
+      "decorations": "Use floating 3D shapes (CSS only or images) in background."
+    },
+    "parent_ui": {
+      "style": "Clean Swiss",
+      "border_radius": "rounded-lg",
+      "border_width": "border",
+      "shadows": "shadow-sm",
+      "hover_effects": "hover:bg-slate-50 transition-colors",
+      "decorations": "Subtle grid patterns in background."
+    }
+  },
+  "layout_strategies": {
+    "child_dashboard": {
+      "grid_type": "Bento Mode A (Tetris)",
+      "gap": "gap-6",
+      "padding": "p-6 md:p-10",
+      "container_style": "Max width 1200px, centered, colorful background blobs."
+    },
+    "parent_dashboard": {
+      "grid_type": "Bento Mode B (Control Room)",
+      "gap": "gap-4",
+      "padding": "p-6",
+      "container_style": "Full width fluid container with sidebar navigation."
+    }
+  },
+  "components": {
+    "buttons": {
+      "child_primary": "bg-[#4CC9F0] text-black border-4 border-black rounded-full px-8 py-4 font-bold text-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-none",
+      "child_secondary": "bg-[#FFD60A] text-black border-4 border-black rounded-full px-6 py-3 font-bold text-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-none",
+      "parent_primary": "bg-slate-900 text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-slate-800",
+      "parent_outline": "border border-slate-200 bg-white hover:bg-slate-100 text-slate-900 rounded-md px-4 py-2 text-sm"
+    },
+    "cards": {
+      "child_card": "bg-white border-4 border-black rounded-3xl p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.1)]",
+      "parent_card": "bg-white border border-slate-200 rounded-lg p-6 shadow-sm"
+    }
+  },
+  "image_assets": {
+    "subjects": [
+      {
+        "name": "Math",
+        "url": "https://images.pexels.com/photos/12920749/pexels-photo-12920749.jpeg",
+        "alt": "Math notebook and calculator",
+        "usage": "Subject card background or icon"
+      },
+      {
+        "name": "Science",
+        "url": "https://images.pexels.com/photos/7723383/pexels-photo-7723383.jpeg",
+        "alt": "Science microscope",
+        "usage": "Subject card background or icon"
+      },
+      {
+        "name": "Language/Reading",
+        "url": "https://images.pexels.com/photos/6034055/pexels-photo-6034055.jpeg",
+        "alt": "Open book",
+        "usage": "Subject card background or icon"
+      },
+      {
+        "name": "Achievements",
+        "url": "https://images.pexels.com/photos/11702566/pexels-photo-11702566.jpeg",
+        "alt": "Gold trophy",
+        "usage": "Gamification section"
+      }
+    ],
+    "parent_view": [
+      {
+        "name": "Parent Helping",
+        "url": "https://images.pexels.com/photos/4145355/pexels-photo-4145355.jpeg",
+        "alt": "Parent helping child",
+        "usage": "Landing page hero or onboarding"
+      }
+    ]
+  },
+  "motion": {
+    "child": {
+      "hover": "scale-105 rotate-1",
+      "click": "scale-95",
+      "entrance": "animate-bounce-in (custom keyframe needed)"
+    },
+    "parent": {
+      "hover": "opacity-90",
+      "click": "scale-[0.98]",
+      "entrance": "animate-fade-in"
+    }
+  },
+  "accessibility": {
+    "contrast": "Ensure all text on colored backgrounds (child theme) is strictly #000000 or #FFFFFF depending on APCA score.",
+    "touch_targets": "Minimum 48px for all child-interactive elements.",
+    "text_size": "Minimum 16px for body text in child view."
+  },
+  "instructions_to_main_agent": [
+    "DETECT USER TYPE: Always check if the current route is '/child' or '/parent' to apply the correct theme.",
+    "USE LUCIDE ICONS: For the child UI, use Lucide icons with 'stroke-width={3}' and wrap them in colorful circles.",
+    "NO GRADIENTS FOR KIDS: Use solid, flat colors with thick black borders for that 'cartoon' look.",
+    "CHART LIBRARY: Use 'recharts' for parent dashboards. Keep them simple (Bar, Line, Pie).",
+    "ROUTE STRUCTURE: / (Landing), /auth (Login), /parent/* (Parent Dashboard), /child/* (Child Dashboard).",
+    "DATA-TESTID: Every button and input MUST have a data-testid attribute."
+  ],
+  "universal_guidelines": [
+    "Do not use generic centered layouts.",
+    "Create depth through layered design elements.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Every interaction needs micro-animations."
+  ]
+}
