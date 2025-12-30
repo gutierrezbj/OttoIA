@@ -420,6 +420,7 @@ El ejercicio debe ser apropiado para la edad y nivel. Las opciones deben incluir
             "created_at": datetime.now(timezone.utc).isoformat()
         }
         await db.exercises.insert_one(fallback)
+        fallback.pop("_id", None)
         return fallback
 
 @api_router.post("/attempts")
