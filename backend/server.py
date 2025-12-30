@@ -244,7 +244,7 @@ async def create_child(child_data: ChildCreate, user: User = Depends(get_current
     child_dict = child.model_dump()
     child_dict["created_at"] = child_dict["created_at"].isoformat()
     await db.children.insert_one(child_dict)
-    del child_dict["_id"] if "_id" in child_dict else None
+    child_dict.pop("_id", None)
     return child_dict
 
 @api_router.get("/children/{child_id}")
