@@ -68,13 +68,12 @@ class TutorIAAPITester:
             return False, {}
 
     def create_test_user_session(self):
-        """Create test user and session in MongoDB"""
-        self.log("🔧 Creating test user and session...")
+        """Use existing test user and session"""
+        self.log("🔧 Using existing test user and session...")
         
-        # Generate test data
-        timestamp = int(datetime.now().timestamp())
-        self.user_id = f"test-user-{timestamp}"
-        self.session_token = f"test_session_{timestamp}"
+        # Use existing test credentials from review request
+        self.session_token = "test_session_1767119972159"
+        self.test_child_id = "child_5f51fb1c51ca"
         
         # MongoDB commands to create test user and session
         mongo_commands = f"""
