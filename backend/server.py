@@ -22,7 +22,7 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # OpenAI client
-openai_client = AsyncOpenAI(api_key=os.environ.get('EMERGENT_LLM_KEY', ''))
+openai_client = AsyncOpenAI(api_key=os.environ.get('OPENAI_API_KEY', ''))
 
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
