@@ -401,7 +401,7 @@ El ejercicio debe ser apropiado para la edad y nivel. Las opciones deben incluir
         }
         
         await db.exercises.insert_one(exercise)
-        del exercise["_id"] if "_id" in exercise else None
+        exercise.pop("_id", None)
         return exercise
         
     except Exception as e:
