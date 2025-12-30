@@ -5,7 +5,7 @@ import { API, AuthContext } from "../App";
 import { toast } from "sonner";
 import { 
   ArrowLeft, MessageCircle, BookOpen, Target, 
-  Trophy, Smile, Meh, Frown, Zap, Home
+  Trophy, Smile, Meh, Frown, Zap, Home, Map
 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Progress } from "../components/ui/progress";
