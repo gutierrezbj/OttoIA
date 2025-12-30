@@ -367,18 +367,17 @@ Responde SOLO con un JSON válido con esta estructura exacta:
 El ejercicio debe ser apropiado para la edad y nivel. Las opciones deben incluir la respuesta correcta."""
 
     try:
-        response = await openai_client.chat.completions.create(
-            model="gpt-4o",
+        response = await claude_client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=500,
+            system="Eres un tutor de primaria experto. Genera ejercicios educativos en español. Responde SOLO con JSON válido, sin explicaciones adicionales.",
             messages=[
-                {"role": "system", "content": "Eres un tutor de primaria experto. Genera ejercicios educativos en español."},
                 {"role": "user", "content": prompt}
-            ],
-            temperature=0.7,
-            max_tokens=500
+            ]
         )
         
         import json
-        content = response.choices[0].message.content
+        content = response.content[0].text
         # Clean up response if needed
         if "```json" in content:
             content = content.split("```json")[1].split("```")[0]
