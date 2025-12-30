@@ -227,31 +227,9 @@ class TutorIAAPITester:
         return True
 
     def cleanup(self):
-        """Clean up test data"""
-        self.log("\n🧹 Cleaning up test data...")
-        
-        if self.test_child_id:
-            self.run_test("Delete test child", "DELETE", f"children/{self.test_child_id}", 200)
-        
-        # Clean up MongoDB
-        if self.user_id:
-            mongo_cleanup = f"""
-            use test_database;
-            db.users.deleteOne({{user_id: "{self.user_id}"}});
-            db.user_sessions.deleteOne({{user_id: "{self.user_id}"}});
-            db.children.deleteMany({{parent_id: "{self.user_id}"}});
-            db.exercises.deleteMany({{child_id: "{self.test_child_id or 'none'}"}});
-            db.attempts.deleteMany({{child_id: "{self.test_child_id or 'none'}"}});
-            db.chat_messages.deleteMany({{child_id: "{self.test_child_id or 'none'}"}});
-            db.checkins.deleteMany({{child_id: "{self.test_child_id or 'none'}"}});
-            """
-            
-            import subprocess
-            try:
-                subprocess.run(["mongosh", "--eval", mongo_cleanup], timeout=10)
-                self.log("✅ Test data cleaned up")
-            except:
-                self.log("⚠️  Could not clean up test data")
+        """Skip cleanup for existing test data"""
+        self.log("\n🧹 Skipping cleanup for existing test data...")
+        self.log("✅ Test completed")
 
     def run_all_tests(self):
         """Run all tests"""
