@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 import uuid
 
 class TutorIAAPITester:
-    def __init__(self, base_url="https://aitutor-kids-1.preview.emergentagent.com"):
+    def __init__(self, base_url="https://tutoria-demo.preview.emergentagent.com"):
         self.base_url = base_url
         self.api_url = f"{base_url}/api"
         self.session_token = None

@@ -2,7 +2,7 @@
 
 ## 🚀 Acceso Rápido
 
-**URL de la App:** https://aitutor-kids-1.preview.emergentagent.com
+**URL de la App:** https://tutoria-demo.preview.emergentagent.com
 
 ---
 
@@ -62,7 +62,7 @@
 
 ### Base URL
 ```
-https://aitutor-kids-1.preview.emergentagent.com/api
+https://tutoria-demo.preview.emergentagent.com/api
 ```
 
 ### Endpoints Principales
