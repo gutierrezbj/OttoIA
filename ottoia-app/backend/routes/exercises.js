@@ -80,7 +80,7 @@ Responde SOLO con un JSON válido con esta estructura exacta:
 El ejercicio debe ser apropiado para la edad y nivel. Las opciones deben incluir la respuesta correcta.`;
 
       const message = await anthropic.messages.create({
-        model: 'claude-opus-4-1-20250805',
+        model: 'claude-haiku-4-5-20251001',
         max_tokens: 500,
         system: 'Eres un tutor de primaria experto. Genera ejercicios educativos en español. Responde SOLO con JSON válido, sin explicaciones adicionales.',
         messages: [
