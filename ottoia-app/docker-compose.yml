@@ -1,0 +1,68 @@
+# OttoIA - Docker Compose
+# Convencion SRS: Offset +130
+# Frontend: 3130 | API: 4130 | MongoDB: 6130 | Redis: 6131
+# SIEMPRE 127.0.0.1:PUERTO:INTERNO
+
+services:
+  ottoia-frontend:
+    build:
+      context: ..
+      dockerfile: ottoia-app/frontend/Dockerfile
+    container_name: ottoia-frontend
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3130:80"
+    depends_on:
+      - ottoia-api
+    environment:
+      - VITE_API_URL=/api
+    networks:
+      - ottoia-net
+
+  ottoia-api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ottoia-api
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4130:5000"
+    depends_on:
+      - ottoia-mongo
+    env_file:
+      - ./backend/.env
+    environment:
+      - PORT=5000
+      - MONGO_URL=mongodb://ottoia-mongo:27017
+      - DB_NAME=ottoia
+      - FRONTEND_URL=http://localhost:3130
+      - GOOGLE_CALLBACK_URL=http://localhost:4130/api/auth/google/callback
+    networks:
+      - ottoia-net
+
+  ottoia-mongo:
+    image: mongo:7
+    container_name: ottoia-mongo
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6130:27017"
+    volumes:
+      - ottoia-mongo-data:/data/db
+    networks:
+      - ottoia-net
+
+  ottoia-redis:
+    image: redis:7-alpine
+    container_name: ottoia-redis
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6131:6379"
+    networks:
+      - ottoia-net
+
+volumes:
+  ottoia-mongo-data:
+
+networks:
+  ottoia-net:
+    driver: bridge

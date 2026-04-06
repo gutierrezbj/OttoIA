@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* OttoIA Design System base styles */
+@import '../../design-system/ottoia-base.css';

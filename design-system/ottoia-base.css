@@ -1,0 +1,326 @@
+/**
+ * OttoIA Base Styles
+ * ==================
+ * Custom CSS classes extracted from the MVP.
+ * Import AFTER Tailwind directives:
+ *   @tailwind base;
+ *   @tailwind components;
+ *   @tailwind utilities;
+ *   @import './ottoia-base.css';
+ */
+
+/* ============================================================
+   GOOGLE FONTS
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Varela+Round&family=Outfit:wght@400;500;600&family=Inter:wght@400;500&display=swap');
+
+/* ============================================================
+   SHADCN/UI CSS VARIABLES (Light)
+   ============================================================ */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ============================================================
+   THEME SCOPES
+   ============================================================ */
+
+/* Child Theme Scope — apply to parent container */
+.child-theme {
+  --bg-primary: #FFFDF5;
+  --color-primary: #4CC9F0;
+  --color-secondary: #FFD60A;
+  --color-accent: #F72585;
+  --text-main: #2B2D42;
+  --text-muted: #8D99AE;
+  --card-bg: #FFFFFF;
+  --border-color: #2B2D42;
+
+  font-family: 'Varela Round', sans-serif;
+  background-color: #FFFDF5;
+  min-height: 100vh;
+}
+
+.child-theme h1,
+.child-theme h2,
+.child-theme h3 {
+  font-family: 'Fredoka', sans-serif;
+}
+
+/* Parent Theme Scope */
+.parent-theme {
+  --bg-primary: #F8FAFC;
+  --color-primary: #0F172A;
+  --color-secondary: #334155;
+  --color-accent: #3B82F6;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --card-bg: #FFFFFF;
+  --border-color: #E2E8F0;
+
+  font-family: 'Inter', sans-serif;
+  background-color: #F8FAFC;
+  min-height: 100vh;
+}
+
+.parent-theme h1,
+.parent-theme h2,
+.parent-theme h3 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ============================================================
+   CLAYMORPHISM COMPONENTS (Child)
+   ============================================================ */
+
+/* Card */
+.card-clay {
+  background-color: #fff;
+  border: 4px solid #000;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.1);
+}
+
+/* Primary Button */
+.btn-clay {
+  background-color: #4CC9F0;
+  color: #000;
+  border: 4px solid #000;
+  border-radius: 9999px;
+  padding: 16px 32px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.btn-clay:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Secondary Button */
+.btn-clay-secondary {
+  background-color: #FFD60A;
+  color: #000;
+  border: 4px solid #000;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.btn-clay-secondary:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Accent Button */
+.btn-clay-accent {
+  background-color: #F72585;
+  color: #fff;
+  border: 4px solid #000;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.btn-clay-accent:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* ============================================================
+   PROGRESS BAR (Child)
+   ============================================================ */
+.progress-clay {
+  background-color: #E5E7EB;
+  border-radius: 9999px;
+  height: 16px;
+  border: 3px solid #000;
+  overflow: hidden;
+}
+.progress-clay-fill {
+  background-color: #4CC9F0;
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+/* ============================================================
+   CHAT BUBBLES
+   ============================================================ */
+.chat-bubble-user {
+  background-color: #4CC9F0;
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 20px 20px 4px 20px;
+  padding: 12px 16px;
+  max-width: 80%;
+  margin-left: auto;
+}
+.chat-bubble-assistant {
+  background-color: #fff;
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 20px 20px 20px 4px;
+  padding: 12px 16px;
+  max-width: 80%;
+}
+
+/* ============================================================
+   STATUS INDICATORS
+   ============================================================ */
+.status-green  { background-color: #10B981; }
+.status-yellow { background-color: #F59E0B; }
+.status-red    { background-color: #EF4444; }
+
+/* ============================================================
+   MOOD COLORS
+   ============================================================ */
+.mood-happy      { color: #10B981; }
+.mood-neutral    { color: #F59E0B; }
+.mood-tired      { color: #8D99AE; }
+.mood-frustrated { color: #EF4444; }
+
+/* ============================================================
+   SUBJECT ICONS
+   ============================================================ */
+.subject-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  border: 3px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+.subject-matematicas { background-color: #4CC9F0; }
+.subject-lengua      { background-color: #FFD60A; }
+.subject-ciencias    { background-color: #10B981; }
+.subject-ingles      { background-color: #F72585; }
+
+/* ============================================================
+   GRADIENTS
+   ============================================================ */
+.landing-gradient {
+  background: linear-gradient(135deg, #FFFDF5 0%, #FEF3C7 100%);
+}
+
+/* ============================================================
+   STREAK BADGE
+   ============================================================ */
+.streak-badge {
+  background: linear-gradient(135deg, #FFD60A, #F59E0B);
+  border: 3px solid #000;
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   FLOATING DECORATIVE SHAPES (Child backgrounds)
+   ============================================================ */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.shape-1 { width: 200px; height: 200px; background: #4CC9F0; top: 10%; left: 5%; }
+.shape-2 { width: 150px; height: 150px; background: #FFD60A; top: 60%; right: 10%; }
+.shape-3 { width: 100px; height: 100px; background: #F72585; bottom: 20%; left: 15%; }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes bounce-in {
+  0%   { transform: scale(0.8); opacity: 0; }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(76, 201, 240, 0.5); }
+  50%      { box-shadow: 0 0 20px rgba(76, 201, 240, 0.8); }
+}
+
+.animate-bounce-in  { animation: bounce-in 0.5s ease forwards; }
+.animate-fade-in    { animation: fade-in 0.3s ease forwards; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
