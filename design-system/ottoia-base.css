@@ -297,12 +297,13 @@
 .floating-shape {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.1;
+  opacity: 0.55;
   pointer-events: none;
+  filter: blur(2px);
 }
-.shape-1 { width: 200px; height: 200px; background: #4CC9F0; top: 10%; left: 5%; }
-.shape-2 { width: 150px; height: 150px; background: #FFD60A; top: 60%; right: 10%; }
-.shape-3 { width: 100px; height: 100px; background: #F72585; bottom: 20%; left: 15%; }
+.shape-1 { width: 320px; height: 320px; background: #B8F0E8; top: 8%; left: -4%; }
+.shape-2 { width: 280px; height: 280px; background: #FFE4A0; top: 55%; right: -2%; }
+.shape-3 { width: 220px; height: 220px; background: #FFD3DD; bottom: 8%; left: 18%; }
 
 /* ============================================================
    ANIMATIONS
