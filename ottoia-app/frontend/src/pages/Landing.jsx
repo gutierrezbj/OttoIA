@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Star, Users, BarChart3, ArrowRight } from 'lucide-react';
+import { BookOpen, Star, Users, BarChart3, ArrowRight, Flame } from 'lucide-react';
 import { API } from '../App';
 
 const Landing = () => {
@@ -19,6 +19,20 @@ const Landing = () => {
     { name: "Lengua", color: "#FFD60A", icon: "📖" },
     { name: "Ciencias", color: "#10B981", icon: "🔬" },
     { name: "Ingles", color: "#F72585", icon: "🌍" },
+  ];
+
+  const sessionSteps = [
+    { number: 1, title: "Check-in", description: "Como te sientes hoy?" },
+    { number: 2, title: "Mini-reto", description: "2-5 ejercicios adaptados" },
+    { number: 3, title: "Guia", description: "Pistas si te atascas" },
+    { number: 4, title: "Celebra", description: "Resumen motivador" },
+  ];
+
+  const weeklyMaria = [
+    { name: "Mates", color: "#10B981", value: "85%" },
+    { name: "Lengua", color: "#FFD60A", value: "62%" },
+    { name: "Ciencias", color: "#10B981", value: "78%" },
+    { name: "Ingles", color: "#F72585", value: "45%" },
   ];
 
   return (
@@ -91,6 +105,63 @@ const Landing = () => {
                 <p className="text-[#8D99AE]">{f.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sesiones */}
+      <section className="py-16 bg-[#FFFCF0]">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#2B2D42] mb-12 font-fredoka">
+            Sesiones de 5 a 15 minutos
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {sessionSteps.map((step, i) => (
+              <div
+                key={step.number}
+                className="flex flex-col items-center text-center animate-fade-in"
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
+                <div className="w-16 h-16 bg-[#FFD60A] border-4 border-black rounded-full flex items-center justify-center mb-4 shadow-clay-sm">
+                  <span className="text-2xl font-bold text-[#2B2D42] font-fredoka">{step.number}</span>
+                </div>
+                <h3 className="text-lg font-bold text-[#2B2D42] mb-1 font-fredoka">{step.title}</h3>
+                <p className="text-sm text-[#8D99AE]">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Padres informados */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#2B2D42] mb-2 font-fredoka">
+            Padres informados, sin ruido
+          </h2>
+          <p className="text-center text-[#8D99AE] mb-12">Ve el progreso de tu hijo de un vistazo</p>
+          <div className="max-w-2xl mx-auto bg-white border-4 border-black rounded-3xl p-6 shadow-clay">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-bold text-[#2B2D42] font-fredoka">Resumen semanal de Maria</h3>
+              <div className="flex items-center gap-2 px-4 py-2 bg-[#FFD60A] border-3 border-black rounded-full">
+                <Flame className="w-5 h-5 text-[#2B2D42]" />
+                <span className="font-bold text-[#2B2D42] text-sm">5 dias seguidos</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-4 gap-4 mb-6">
+              {weeklyMaria.map((s) => (
+                <div key={s.name} className="flex flex-col items-center">
+                  <div className="w-4 h-4 rounded-full mb-2" style={{ backgroundColor: s.color }}></div>
+                  <span className="text-sm font-bold text-[#2B2D42]">{s.name}</span>
+                  <span className="text-xs text-[#8D99AE]">{s.value}</span>
+                </div>
+              ))}
+            </div>
+            <div className="bg-[#FFFCF0] border-2 border-[#FFD60A] rounded-2xl p-4">
+              <p className="text-sm text-[#2B2D42]">
+                <strong>Recomendacion:</strong> Esta semana mejoro en sumas. En comprension lectora se confunde con datos irrelevantes. 3 sesiones de 8 min enfocadas en subrayar datos.
+              </p>
+            </div>
           </div>
         </div>
       </section>
