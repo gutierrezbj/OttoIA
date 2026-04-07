@@ -293,14 +293,53 @@
    ============================================================ */
 .floating-shape {
   position: absolute;
-  border-radius: 50%;
-  opacity: 0.85;
   pointer-events: none;
   z-index: 0;
+  opacity: 0.78;
+  animation: float 14s ease-in-out infinite;
 }
-.shape-1 { width: 340px; height: 340px; background: #FF8C42; top: 6%; left: -6%; }
-.shape-2 { width: 280px; height: 280px; background: #FFB347; top: 50%; right: -4%; }
-.shape-3 { width: 220px; height: 220px; background: #FF6B35; bottom: 4%; left: 14%; }
+/* Multi-color organic blobs — brand palette mix */
+.shape-1 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle at 30% 30%, #FFB347, #FF8C42);
+  top: -4%; left: -8%;
+  border-radius: 58% 42% 64% 36% / 52% 60% 40% 48%;
+  animation-delay: 0s;
+}
+.shape-2 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle at 60% 40%, #4CC9F0, #4895EF);
+  top: 48%; right: -6%;
+  border-radius: 44% 56% 38% 62% / 60% 36% 64% 40%;
+  animation-delay: -3s;
+}
+.shape-3 {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle at 50% 50%, #F72585, #E91E63);
+  bottom: 6%; left: 12%;
+  border-radius: 62% 38% 50% 50% / 48% 52% 48% 52%;
+  animation-delay: -6s;
+}
+.shape-4 {
+  width: 160px; height: 160px;
+  background: radial-gradient(circle at 40% 40%, #FFD60A, #F59E0B);
+  top: 14%; right: 18%;
+  border-radius: 50% 50% 60% 40% / 60% 40% 50% 50%;
+  animation-delay: -9s;
+}
+.shape-5 {
+  width: 120px; height: 120px;
+  background: radial-gradient(circle at 50% 50%, #10B981, #059669);
+  bottom: 28%; right: 28%;
+  border-radius: 56% 44% 50% 50% / 50% 50% 56% 44%;
+  animation-delay: -12s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33%      { transform: translate(12px, -18px) rotate(4deg); }
+  66%      { transform: translate(-10px, 14px) rotate(-3deg); }
+}
 
 /* ============================================================
    ANIMATIONS

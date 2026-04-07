@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Star, Users, BarChart3, ArrowRight, Flame } from 'lucide-react';
+import { BookOpen, Star, Users, BarChart3, ArrowRight, Flame, Sparkles, ShieldCheck } from 'lucide-react';
 import { API } from '../App';
 
 const Landing = () => {
@@ -8,10 +8,10 @@ const Landing = () => {
   };
 
   const features = [
-    { icon: <BookOpen className="w-8 h-8" />, title: "Tutor Conversacional", description: "IA que explica y guia paso a paso" },
-    { icon: <BarChart3 className="w-8 h-8" />, title: "Mapa de Habilidades", description: "Detecta carencias y sugiere practica" },
-    { icon: <Star className="w-8 h-8" />, title: "Motivacion Positiva", description: "Refuerzo sin presion, metas pequenas" },
-    { icon: <Users className="w-8 h-8" />, title: "Panel para Padres", description: "Reportes claros con semaforos" },
+    { icon: <BookOpen className="w-8 h-8" />, title: "Tutor Conversacional", description: "IA que explica y guia paso a paso", color: "#4CC9F0" },
+    { icon: <BarChart3 className="w-8 h-8" />, title: "Mapa de Habilidades", description: "Detecta carencias y sugiere practica", color: "#10B981" },
+    { icon: <Star className="w-8 h-8" />, title: "Motivacion Positiva", description: "Refuerzo sin presion, metas pequenas", color: "#FFD60A" },
+    { icon: <Users className="w-8 h-8" />, title: "Panel para Padres", description: "Reportes claros con semaforos", color: "#F72585" },
   ];
 
   const subjects = [
@@ -42,33 +42,46 @@ const Landing = () => {
         <div className="floating-shape shape-1"></div>
         <div className="floating-shape shape-2"></div>
         <div className="floating-shape shape-3"></div>
+        <div className="floating-shape shape-4"></div>
+        <div className="floating-shape shape-5"></div>
 
         <nav className="container mx-auto px-6 py-6 flex justify-between items-center relative z-10">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-[#4CC9F0] border-4 border-black rounded-2xl flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-black" />
+            <div className="w-12 h-12 bg-[#4CC9F0] border-4 border-black rounded-2xl flex items-center justify-center shadow-clay-sm">
+              <BookOpen className="w-6 h-6 text-black" strokeWidth={3} />
             </div>
             <span className="text-2xl font-bold text-[#2B2D42] font-fredoka">OttoIA</span>
           </div>
-          <button onClick={handleLogin} className="bg-[#2B2D42] text-white hover:bg-[#1a1b26] rounded-full px-6 py-2 font-medium transition-colors">
+          <button onClick={handleLogin} className="bg-[#2B2D42] text-white hover:bg-[#1a1b26] rounded-full px-6 py-2 font-medium transition-colors border-2 border-black shadow-clay-sm">
             Iniciar sesion
           </button>
         </nav>
 
         <div className="container mx-auto px-6 py-16 md:py-24 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-[#2B2D42] mb-6 font-fredoka">
-              El tutor personal que tu hijo necesita
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-white border-3 border-black rounded-full shadow-clay-sm animate-bounce-in">
+              <Sparkles className="w-4 h-4 text-[#F72585]" strokeWidth={3} />
+              <span className="text-sm font-bold text-[#2B2D42]">Alineado con LOMLOE</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-[#2B2D42] mb-6 font-fredoka leading-tight">
+              El tutor personal<br/>que <span className="relative inline-block">
+                <span className="relative z-10">tu hijo</span>
+                <span className="absolute inset-x-0 bottom-1 h-4 bg-[#FFD60A] -z-0 rounded-sm"></span>
+              </span> necesita
             </h1>
-            <p className="text-lg md:text-xl text-[#8D99AE] mb-8 max-w-2xl mx-auto">
-              Practica corta y enfocada. Explicaciones paso a paso. Sin agobios, con resultados.
+            <p className="text-lg md:text-xl text-[#5a6577] mb-10 max-w-2xl mx-auto">
+              Practica corta y enfocada. Explicaciones paso a paso.<br/>
+              <span className="font-semibold text-[#2B2D42]">Sin agobios, con resultados.</span>
             </p>
-            <button onClick={handleLogin} className="btn-clay text-xl">
-              Empezar gratis <ArrowRight className="inline-block ml-2 w-6 h-6" />
-            </button>
-            <p className="text-sm text-[#8D99AE] mt-4">
-              Para alumnos de 1 a 6 de Primaria
-            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button onClick={handleLogin} className="btn-clay text-xl group">
+                Empezar gratis <ArrowRight className="inline-block ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <div className="flex items-center gap-2 text-sm text-[#5a6577]">
+                <ShieldCheck className="w-5 h-5 text-[#10B981]" strokeWidth={3} />
+                <span><strong>Gratis</strong> · Sin tarjeta · 1 a 6 de Primaria</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -97,12 +110,19 @@ const Landing = () => {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
-              <div key={f.title} className="card-clay animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="w-14 h-14 bg-[#4CC9F0] border-3 border-black rounded-2xl flex items-center justify-center mb-4">
-                  {f.icon}
+              <div
+                key={f.title}
+                className="card-clay animate-fade-in hover:-translate-y-2 transition-transform duration-200"
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
+                <div
+                  className="w-16 h-16 border-4 border-black rounded-2xl flex items-center justify-center mb-4 shadow-clay-sm"
+                  style={{ backgroundColor: f.color }}
+                >
+                  {React.cloneElement(f.icon, { strokeWidth: 3, className: 'w-8 h-8 text-[#2B2D42]' })}
                 </div>
                 <h3 className="text-xl font-bold text-[#2B2D42] mb-2 font-fredoka">{f.title}</h3>
-                <p className="text-[#8D99AE]">{f.description}</p>
+                <p className="text-[#5a6577]">{f.description}</p>
               </div>
             ))}
           </div>
@@ -115,20 +135,28 @@ const Landing = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#2B2D42] mb-12 font-fredoka">
             Sesiones de 5 a 15 minutos
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {sessionSteps.map((step, i) => (
-              <div
-                key={step.number}
-                className="flex flex-col items-center text-center animate-fade-in"
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <div className="w-16 h-16 bg-[#FFD60A] border-4 border-black rounded-full flex items-center justify-center mb-4 shadow-clay-sm">
-                  <span className="text-2xl font-bold text-[#2B2D42] font-fredoka">{step.number}</span>
+          <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {/* Connector line (desktop only) */}
+            <div className="hidden md:block absolute top-8 left-[12%] right-[12%] h-1 bg-[#2B2D42] rounded-full -z-0" style={{ borderTop: '3px dashed #2B2D42', background: 'transparent' }}></div>
+            {sessionSteps.map((step, i) => {
+              const colors = ['#4CC9F0', '#FFD60A', '#F72585', '#10B981'];
+              return (
+                <div
+                  key={step.number}
+                  className="relative flex flex-col items-center text-center animate-fade-in z-10"
+                  style={{ animationDelay: `${i * 120}ms` }}
+                >
+                  <div
+                    className="w-16 h-16 border-4 border-black rounded-full flex items-center justify-center mb-4 shadow-clay-sm"
+                    style={{ backgroundColor: colors[i] }}
+                  >
+                    <span className="text-2xl font-bold text-[#2B2D42] font-fredoka">{step.number}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#2B2D42] mb-1 font-fredoka">{step.title}</h3>
+                  <p className="text-sm text-[#5a6577]">{step.description}</p>
                 </div>
-                <h3 className="text-lg font-bold text-[#2B2D42] mb-1 font-fredoka">{step.title}</h3>
-                <p className="text-sm text-[#8D99AE]">{step.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
