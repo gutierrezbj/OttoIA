@@ -1,6 +1,6 @@
+/* OttoIA Design System base styles (must come BEFORE @tailwind) */
+@import '../../design-system/ottoia-base.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* OttoIA Design System base styles */
-@import '../../design-system/ottoia-base.css';
