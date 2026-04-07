@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Star, Users, BarChart3, ArrowRight, Flame, Sparkles, ShieldCheck } from 'lucide-react';
+import { BookOpen, Star, Users, BarChart3, ArrowRight, Flame, Sparkles, ShieldCheck, Check, Quote, ChevronDown } from 'lucide-react';
 import { API } from '../App';
 
 const Landing = () => {
@@ -26,6 +26,48 @@ const Landing = () => {
     { number: 2, title: "Mini-reto", description: "2-5 ejercicios adaptados" },
     { number: 3, title: "Guia", description: "Pistas si te atascas" },
     { number: 4, title: "Celebra", description: "Resumen motivador" },
+  ];
+
+  const testimonials = [
+    { name: "Lucia M.", role: "Madre de Hugo (3º)", text: "En 3 semanas Hugo pide el solo hacer su sesion. Antes habia que rogarle.", color: "#4CC9F0" },
+    { name: "Carlos R.", role: "Padre de Sara (5º)", text: "El reporte semanal me dice exactamente donde ayudarla. Vale oro.", color: "#FFD60A" },
+    { name: "Marta G.", role: "Madre de Leo (2º)", text: "Sin pantallas infinitas. 10 minutos al dia y se nota. Por fin algo sano.", color: "#F72585" },
+  ];
+
+  const plans = [
+    {
+      name: "Gratis",
+      price: "0",
+      tagline: "Para empezar",
+      features: ["1 hijo", "3 sesiones / semana", "Reporte basico", "Sin tarjeta"],
+      cta: "Empezar gratis",
+      highlight: false,
+    },
+    {
+      name: "Familia",
+      price: "9",
+      tagline: "El mas elegido",
+      features: ["Hasta 3 hijos", "Sesiones ilimitadas", "Reportes semanales completos", "Mapa de habilidades", "Soporte prioritario"],
+      cta: "Probar 14 dias gratis",
+      highlight: true,
+    },
+    {
+      name: "Familia+",
+      price: "12",
+      tagline: "Maxima cobertura",
+      features: ["Hasta 5 hijos", "Todo lo de Familia", "Sesiones de tutoria 1:1 (mensual)", "Plan personalizado por hijo"],
+      cta: "Probar 14 dias gratis",
+      highlight: false,
+    },
+  ];
+
+  const faqs = [
+    { q: "A partir de que edad funciona?", a: "OttoIA esta disenado para ninos de 1º a 6º de Primaria (6 a 12 anos), alineado con LOMLOE." },
+    { q: "Cuanto tiempo al dia recomendais?", a: "Sesiones de 5 a 15 minutos, 3-5 veces por semana. Mejor poco y constante que mucho y agobiante." },
+    { q: "Reemplaza al profesor o al refuerzo escolar?", a: "No. Es un complemento. Detecta carencias y motiva la practica diaria, pero el aula sigue siendo el centro." },
+    { q: "Es seguro para mi hijo?", a: "Sin anuncios, sin chats con extranos, sin compras dentro de la app. Tu controlas todo desde el panel de padres." },
+    { q: "Puedo cancelar cuando quiera?", a: "Si. Sin permanencia, sin letra pequena. Cancelas en 1 clic desde tu cuenta." },
+    { q: "Que pasa con los datos de mi hijo?", a: "Cumplimos RGPD. Datos cifrados, nunca se venden, y puedes borrarlos cuando quieras." },
   ];
 
   const weeklyMaria = [
@@ -190,6 +232,112 @@ const Landing = () => {
                 <strong>Recomendacion:</strong> Esta semana mejoro en sumas. En comprension lectora se confunde con datos irrelevantes. 3 sesiones de 8 min enfocadas en subrayar datos.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonios */}
+      <section className="py-16 bg-[#FFFCF0]">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#2B2D42] mb-2 font-fredoka">
+            Familias que ya confian en OttoIA
+          </h2>
+          <p className="text-center text-[#5a6577] mb-12">Padres reales, resultados reales</p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {testimonials.map((t, i) => (
+              <div
+                key={t.name}
+                className="card-clay animate-fade-in hover:-translate-y-2 transition-transform duration-200"
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
+                <div
+                  className="w-12 h-12 border-4 border-black rounded-2xl flex items-center justify-center mb-4 shadow-clay-sm"
+                  style={{ backgroundColor: t.color }}
+                >
+                  <Quote className="w-5 h-5 text-[#2B2D42]" strokeWidth={3} />
+                </div>
+                <p className="text-[#2B2D42] mb-4 leading-relaxed">{t.text}</p>
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(5)].map((_, idx) => (
+                    <Star key={idx} className="w-4 h-4 fill-[#FFD60A] text-[#FFD60A]" strokeWidth={2} />
+                  ))}
+                </div>
+                <div>
+                  <div className="font-bold text-[#2B2D42]">{t.name}</div>
+                  <div className="text-sm text-[#5a6577]">{t.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#2B2D42] mb-2 font-fredoka">
+            Precios honestos
+          </h2>
+          <p className="text-center text-[#5a6577] mb-12">Empieza gratis. Sin tarjeta. Sin permanencia.</p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {plans.map((p, i) => (
+              <div
+                key={p.name}
+                className={`relative card-clay animate-fade-in flex flex-col ${p.highlight ? 'md:-translate-y-4 ring-4 ring-[#F72585]' : ''}`}
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
+                {p.highlight && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#F72585] text-white border-4 border-black rounded-full px-4 py-1 text-xs font-bold shadow-clay-sm">
+                    MAS ELEGIDO
+                  </div>
+                )}
+                <div className="text-sm font-bold text-[#5a6577] uppercase tracking-wide mb-2">{p.tagline}</div>
+                <h3 className="text-2xl font-bold text-[#2B2D42] mb-4 font-fredoka">{p.name}</h3>
+                <div className="flex items-baseline gap-1 mb-6">
+                  <span className="text-5xl font-bold text-[#2B2D42] font-fredoka">{p.price}€</span>
+                  <span className="text-[#5a6577]">/mes</span>
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2">
+                      <div className="w-5 h-5 rounded-full bg-[#10B981] border-2 border-black flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-white" strokeWidth={4} />
+                      </div>
+                      <span className="text-[#2B2D42] text-sm">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={handleLogin}
+                  className={p.highlight ? 'btn-clay w-full' : 'btn-clay-secondary w-full'}
+                >
+                  {p.cta}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 bg-[#FFFCF0]">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#2B2D42] mb-12 font-fredoka">
+            Preguntas frecuentes
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <details
+                key={i}
+                className="group bg-white border-4 border-black rounded-2xl shadow-clay-sm overflow-hidden"
+              >
+                <summary className="flex items-center justify-between cursor-pointer p-5 font-bold text-[#2B2D42] list-none">
+                  <span>{faq.q}</span>
+                  <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180" strokeWidth={3} />
+                </summary>
+                <div className="px-5 pb-5 text-[#5a6577] leading-relaxed">{faq.a}</div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
