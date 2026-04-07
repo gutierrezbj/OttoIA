@@ -34,7 +34,7 @@ const Landing = () => {
             <div className="w-12 h-12 bg-[#4CC9F0] border-4 border-black rounded-2xl flex items-center justify-center">
               <BookOpen className="w-6 h-6 text-black" />
             </div>
-            <span className="text-2xl font-bold text-[#2B2D42] font-fredoka">OttoAI</span>
+            <span className="text-2xl font-bold text-[#2B2D42] font-fredoka">OttoIA</span>
           </div>
           <button onClick={handleLogin} className="bg-[#2B2D42] text-white hover:bg-[#1a1b26] rounded-full px-6 py-2 font-medium transition-colors">
             Iniciar sesion
@@ -79,7 +79,7 @@ const Landing = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#2B2D42] mb-12 font-fredoka">
-            Que hace OttoAI diferente?
+            Que hace OttoIA diferente?
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
@@ -110,7 +110,7 @@ const Landing = () => {
 
       <footer className="py-8 bg-[#1a1b26]">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-[#8D99AE] text-sm">2025 OttoAI - Disenado para alumnos de primaria</p>
+          <p className="text-[#8D99AE] text-sm">2025 OttoIA - Disenado para alumnos de primaria</p>
         </div>
       </footer>
     </div>

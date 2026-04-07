@@ -2,7 +2,7 @@
  * OttoIA Design System - Tailwind Configuration
  * ================================================
  * Extracted from ottoia-reference MVP (React 19 + FastAPI + MongoDB)
- * Source: github.com/gutierrezbj/OttoAI (branch conflict_060426_1515)
+ * Source: github.com/gutierrezbj/OttoIA (branch conflict_060426_1515)
  *
  * DUAL-WORLD INTERFACE:
  *   - Child Theme: Claymorphism - playful, tactile, cartoon-like

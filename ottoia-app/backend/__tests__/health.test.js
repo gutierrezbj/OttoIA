@@ -12,7 +12,7 @@ describe('Health & Root endpoints', () => {
   test('GET / returns API welcome message', async () => {
     const res = await request(app).get('/');
     expect(res.status).toBe(200);
-    expect(res.body.message).toContain('OttoAI');
+    expect(res.body.message).toContain('OttoIA');
   });
 
   test('GET /api/health returns ok', async () => {

@@ -51,7 +51,7 @@ Interfaz dual:
 ## Estructura
 
 ```
-OttoAI/
+OttoIA/
 ├── ottoia-app/
 │   ├── frontend/             # React 19 SPA (puerto 3130)
 │   │   ├── src/
@@ -95,8 +95,8 @@ OttoAI/
 
 ```bash
 # Clonar
-git clone https://github.com/gutierrezbj/OttoAI.git
-cd OttoAI/ottoia-app
+git clone https://github.com/gutierrezbj/OttoIA.git
+cd OttoIA/ottoia-app
 
 # Configurar variables de entorno
 cp backend/.env.example backend/.env

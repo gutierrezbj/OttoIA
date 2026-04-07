@@ -42,7 +42,7 @@ function createApp(db) {
 
   // Routes
   app.get('/', (req, res) => {
-    res.json({ message: 'OttoAI API - Tu tutor personal de primaria' });
+    res.json({ message: 'OttoIA API - Tu tutor personal de primaria' });
   });
 
   app.get('/api/health', (req, res) => {

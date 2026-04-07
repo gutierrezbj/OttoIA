@@ -28,7 +28,7 @@ Tutor IA para alumnos de primaria (1-6) en Espana. Interfaz dual: mundo infantil
 
 ## Project Structure
 ```
-OttoAI/
+OttoIA/
 ├── ottoia-app/
 │   ├── frontend/
 │   │   ├── src/

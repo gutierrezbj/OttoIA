@@ -14,9 +14,9 @@ describe('Landing page', () => {
     renderWithRouter(<Landing />);
   });
 
-  test('displays OttoAI brand name', () => {
+  test('displays OttoIA brand name', () => {
     renderWithRouter(<Landing />);
-    expect(screen.getAllByText(/OttoAI/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/OttoIA/i).length).toBeGreaterThan(0);
   });
 
   test('has login button', () => {

@@ -95,7 +95,7 @@ app.use((req, res, next) => {
 
 // Root endpoint
 app.get('/', (req, res) => {
-  res.json({ message: 'OttoAI API - Tu tutor personal de primaria' });
+  res.json({ message: 'OttoIA API - Tu tutor personal de primaria' });
 });
 
 // Health check

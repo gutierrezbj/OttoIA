@@ -1,5 +1,5 @@
 # OttoIA Frontend - Multi-stage build
-# Build context is OttoAI root (not frontend/) so we can access design-system/
+# Build context is OttoIA root (not frontend/) so we can access design-system/
 
 FROM node:22-alpine AS build
 WORKDIR /build

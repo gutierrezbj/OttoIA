@@ -1,6 +1,6 @@
 # OttoIA Design System
 
-Extraido del MVP (React 19 + FastAPI + MongoDB) - repo `gutierrezbj/OttoAI`.
+Extraido del MVP (React 19 + FastAPI + MongoDB) - repo `gutierrezbj/OttoIA`.
 
 ---
 
