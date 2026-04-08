@@ -69,11 +69,6 @@ function getFallbackChatResponse(message, childName) {
     return `¡Hola, ${childName}! 👋 ¿Qué tal estás? Estoy aquí para ayudarte con lo que necesites. ¿Qué te gustaría aprender hoy?`;
   }
 
-  // Short reactions / confusion signals → push forward, never ask kid to explain
-  if (messageLower.length < 5 || ['?', 'y?', 'no se', 'no sé', 'mas', 'más', 'sigue', 'vale', 'ok'].includes(messageLower.trim())) {
-    return `¡Vamos con otro ejemplo, ${childName}! 🌟 Imagina que tienes 8 cromos y los repartes entre 2 amigos. ¿Cuántos le tocan a cada uno? Piensa en repartir uno a uno.`;
-  }
-
   return `¡Mira, ${childName}! 🌟 Te lo cuento con un ejemplo: imagina una tarta dividida en 4 trozos y te comes 1. ¿Cuánto te queda? ¿Quieres que probemos uno juntos?`;
 }
 

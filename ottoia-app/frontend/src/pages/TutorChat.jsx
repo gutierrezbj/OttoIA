@@ -28,9 +28,10 @@ const TutorChat = () => {
 
   useEffect(() => {
     if (!loading && !initialLoading) {
-      inputRef.current?.focus();
+      const t = setTimeout(() => inputRef.current?.focus(), 50);
+      return () => clearTimeout(t);
     }
-  }, [loading, initialLoading]);
+  }, [loading, initialLoading, messages.length]);
 
   const fetchData = async () => {
     try {
