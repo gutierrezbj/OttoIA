@@ -1,7 +1,7 @@
 // Thin wrapper around Gemini REST API (no SDK dependency)
 // Uses native fetch (Node 20+)
 
-const MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+const MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
 
 /**
