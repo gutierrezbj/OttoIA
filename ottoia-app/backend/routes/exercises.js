@@ -1,14 +1,11 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
-const Anthropic = require('@anthropic-ai/sdk');
+const { generate } = require('../lib/gemini');
 const { getCurrentUser } = require('../middleware/auth');
 const SKILLS_DATA = require('../data/skills');
 const EXERCISE_BANK = require('../data/exercises');
 
 const router = express.Router();
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY
-});
 
 // Helper function to get fallback exercise
 function getFallbackExercise(subject, skillInfo, childId) {
@@ -79,19 +76,12 @@ Responde SOLO con un JSON válido con esta estructura exacta:
 
 El ejercicio debe ser apropiado para la edad y nivel. Las opciones deben incluir la respuesta correcta.`;
 
-      const message = await anthropic.messages.create({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 500,
-        system: 'Eres un tutor de primaria experto. Genera ejercicios educativos en español. Responde SOLO con JSON válido, sin explicaciones adicionales.',
-        messages: [
-          {
-            role: 'user',
-            content: prompt
-          }
-        ]
+      let content = await generate({
+        system: 'Eres un tutor de primaria experto. Genera ejercicios educativos en español de España. Responde SOLO con JSON válido, sin explicaciones adicionales ni markdown.',
+        messages: [{ role: 'user', content: prompt }],
+        maxTokens: 500,
+        temperature: 0.6
       });
-
-      let content = message.content[0].text;
 
       // Clean up JSON if wrapped in markdown
       if (content.includes('```json')) {
@@ -117,8 +107,8 @@ El ejercicio debe ser apropiado para la edad y nivel. Las opciones deben incluir
 
       await db.collection('exercises').insertOne(exercise);
       res.json(exercise);
-    } catch (claudeError) {
-      console.error('Claude API error:', claudeError);
+    } catch (aiError) {
+      console.error('Gemini API error:', aiError);
       // Fallback to exercise bank
       const fallback = getFallbackExercise(subject, skillInfo, child_id);
       await db.collection('exercises').insertOne(fallback);

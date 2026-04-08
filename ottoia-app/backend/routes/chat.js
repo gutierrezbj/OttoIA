@@ -1,12 +1,9 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
-const Anthropic = require('@anthropic-ai/sdk');
+const { generate } = require('../lib/gemini');
 const { getCurrentUser } = require('../middleware/auth');
 
 const router = express.Router();
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY
-});
 
 // Fallback responses based on keywords
 function getFallbackChatResponse(message, childName) {
@@ -142,20 +139,17 @@ Contexto actual: ${context || 'conversacion general'}`;
       content: message
     });
 
-    // Try to get response from Claude
+    // Try to get response from Gemini
     let assistantMessage;
     try {
-      const response = await anthropic.messages.create({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 300,
+      assistantMessage = await generate({
         system: systemMessage,
-        messages
+        messages,
+        maxTokens: 300,
+        temperature: 0.8
       });
-
-      assistantMessage = response.content[0].text;
-    } catch (claudeError) {
-      console.error('Claude API error:', claudeError);
-      // Use fallback response
+    } catch (aiError) {
+      console.error('Gemini API error:', aiError);
       assistantMessage = getFallbackChatResponse(message, child.name);
     }
 
