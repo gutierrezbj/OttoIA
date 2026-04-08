@@ -16,6 +16,7 @@ const TutorChat = () => {
   const [loading, setLoading] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     fetchData();
@@ -84,6 +85,7 @@ const TutorChat = () => {
       toast.error("Error al enviar el mensaje");
     } finally {
       setLoading(false);
+      setTimeout(() => inputRef.current?.focus(), 50);
     }
   };
 
@@ -198,6 +200,8 @@ const TutorChat = () => {
       <div className="bg-white border-t-4 border-black p-4">
         <div className="max-w-3xl mx-auto flex gap-3">
           <Input
+            ref={inputRef}
+            autoFocus
             data-testid="chat-input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
