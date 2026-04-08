@@ -4,15 +4,18 @@
 Tutor IA para alumnos de primaria (1-6) en Espana. Interfaz dual: mundo infantil (claymorphism) para ninos + dashboard profesional (Swiss) para padres. Practica adaptativa, chat con tutor IA, mapa de aventuras gamificado.
 
 ## Current State (Abril 2026)
-- MVP funcional completo: frontend React 19 + backend Express + MongoDB
-- Backend migrado de FastAPI (Python) a Node.js/Express (completado)
-- Design system extraido y documentado (tailwind.config.ottoia.js)
-- Infraestructura reservada: offset +130 (puertos 3130/4130/6130/6131)
-- Docker Compose configurado (PROD + STAGING)
-- Fase 5 Kickoff SRS: staging listo, pendiente deploy produccion
-- Referencia original en /ottoia-reference/ (FastAPI, solo lectura)
-- 26 skills definidas (4 materias), 9 rutas API, 9 paginas frontend
-- Tests configurados con Vitest + Testing Library
+- MVP LIVE en https://ottoia.systemrapid.io (PROD-1, 187.77.71.102)
+- Frontend React 19 + backend Express + MongoDB 7 + Redis 7
+- Backend migrado de FastAPI (Python) a Node.js/Express
+- Design system completo (claymorphism child + Swiss parent)
+- Offset +130 (puertos 3130/4130/6130/6131), bind 127.0.0.1
+- Fase 1 Kickoff SRS completada: PROD desplegado, nginx + SSL Let's Encrypt, healthcheck.sh, backup-mongo.sh multi-proyecto, registrado en SA99 InfraService
+- Landing completa: hero con 5 blobs organicos, features, sesiones, dashboard padres preview, testimonios, pricing (0/9/12 EUR), FAQ
+- 38 componentes shadcn/ui añadidos (parity con referencia Emergent)
+- 26 skills (4 materias), 9 rutas API, 9 paginas frontend
+- AI: Claude Haiku 4.5 (claude-haiku-4-5-20251001) para coste optimo
+- Tests con Vitest + Testing Library
+- Listo para familias de prueba
 
 ## Tech Stack
 - **Frontend**: React 19 + Vite + Tailwind CSS 3.4 + shadcn/ui + React Router v7

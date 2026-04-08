@@ -3,13 +3,15 @@
 ## Overview
 System Rapid Solutions es una empresa de desarrollo de software que gestiona un portafolio de productos propios y proyectos para clientes. Opera con metodologia propia (SDD-SRS) y infraestructura centralizada.
 
-## Infraestructura (Marzo 2026)
+## Infraestructura (Abril 2026)
 
 ### Servidores
 | Servidor | IP Publica | Tailscale | Specs |
 |----------|-----------|-----------|-------|
-| PROD (VPS) | 72.62.41.234 | 100.71.174.77 | 2 vCPU, 8GB RAM, 96GB SSD |
-| STAGING (VPS) | 187.77.71.102 | 100.110.52.22 | 1 vCPU, 4GB RAM, 50GB NVMe |
+| PROD-1 (VPS) | 187.77.71.102 | 100.110.52.22 | 1 vCPU, 4GB RAM, 50GB NVMe |
+| PROD-2 (VPS) | 72.62.41.234 | 100.71.174.77 | 2 vCPU, 8GB RAM, 96GB SSD |
+
+Nota: ya no hay entorno staging. Se desarrolla en local (Mac) y se despliega directamente en PROD-1 o PROD-2.
 
 ### Networking
 - VPN: Tailscale mesh (todos los dispositivos)
@@ -69,7 +71,7 @@ Framework de documentacion y desarrollo propio. Cada proyecto pasa por fases def
 - Fase 7: Mantenimiento + iteracion
 
 ### Portafolio Activo
-~12 proyectos en distintas fases de desarrollo. OttoIA actualmente en Fase 5 (staging).
+~12 proyectos en distintas fases de desarrollo. OttoIA actualmente en Fase 1 — MVP LIVE en https://ottoia.systemrapid.io (PROD-1), listo para familias de prueba.
 
 ## Design System SRS v2.0
 

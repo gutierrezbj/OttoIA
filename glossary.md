@@ -4,7 +4,7 @@
 
 | Termino | Definicion |
 |---------|-----------|
-| OttoIA | Tutor IA para primaria en Espana. Nombre del producto. |
+| OttoIA | Tutor IA para primaria en Espana (1-6, LOMLOE). Nombre del producto. MVP LIVE en ottoia.systemrapid.io. |
 | Claymorphism | Estilo visual infantil: bordes gruesos, sombras solidas, colores vibrantes, esquinas redondeadas. Usado en la interfaz del nino. |
 | Swiss theme | Estilo visual limpio/profesional para la interfaz de padres. Inspirado en diseno suizo (tipografia clara, espaciado generoso). |
 | Child theme | Tema visual para rutas /child/*. Fredoka + Varela Round, claymorphism. |
@@ -36,8 +36,8 @@
 | SDD-SRS v1.2 | Version actual de la metodologia de desarrollo de SRS. |
 | SA99 | Proyecto interno SRS (InfraService). Offset +0. |
 | Offset de puertos | Convencion SRS para asignar puertos unicos: 3xxx (frontend), 4xxx (API), 5xxx (servicios), 6xxx (DB). |
-| VPS PROD | 72.62.41.234 — servidor de produccion (2 vCPU, 8GB RAM). |
-| VPS STAGING | 187.77.71.102 — servidor de staging (1 vCPU, 4GB RAM). |
+| VPS PROD-1 | 187.77.71.102 — servidor de produccion (1 vCPU, 4GB RAM). Aloja OttoIA. |
+| VPS PROD-2 | 72.62.41.234 — servidor de produccion (2 vCPU, 8GB RAM). Aloja SA99 y CRM. |
 | Tailscale | VPN mesh que conecta todos los dispositivos SRS. |
 | Kickoff | Proceso de arranque de proyecto SRS. 7 fases (0-7). |
 

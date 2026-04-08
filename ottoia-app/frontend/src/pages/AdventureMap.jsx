@@ -67,11 +67,14 @@ const AdventureMap = () => {
     }
   };
 
-  const getSkillStatus = (skill) => {
-    if (!skill.attempts || skill.attempts === 0) return "locked";
+  const getSkillStatus = (skill, index = 0, prevSkill = null) => {
     if (skill.accuracy >= 80) return "mastered";
     if (skill.accuracy >= 50) return "in-progress";
-    return "needs-work";
+    if (skill.attempts > 0) return "needs-work";
+    // First skill always unlocked; subsequent unlock when previous has any attempts
+    if (index === 0) return "needs-work";
+    if (prevSkill && prevSkill.attempts > 0) return "needs-work";
+    return "locked";
   };
 
   const getWorldProgress = (worldKey) => {
@@ -155,7 +158,7 @@ const AdventureMap = () => {
             {/* Skills */}
             <div className="space-y-8 relative">
               {skills.map((skill, index) => {
-                const status = getSkillStatus(skill);
+                const status = getSkillStatus(skill, index, skills[index - 1]);
                 const isLeft = index % 2 === 0;
 
                 return (
