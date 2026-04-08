@@ -26,6 +26,12 @@ const TutorChat = () => {
     scrollToBottom();
   }, [messages]);
 
+  useEffect(() => {
+    if (!loading && !initialLoading) {
+      inputRef.current?.focus();
+    }
+  }, [loading, initialLoading]);
+
   const fetchData = async () => {
     try {
       const [childRes, historyRes] = await Promise.all([
@@ -85,7 +91,6 @@ const TutorChat = () => {
       toast.error("Error al enviar el mensaje");
     } finally {
       setLoading(false);
-      setTimeout(() => inputRef.current?.focus(), 50);
     }
   };
 
